@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,10 +11,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
   </head>
 
   <body>
@@ -21,34 +20,40 @@
       <h1>Filmes Populares</h1>
       <span class="searcher">
         <input class="search-input" type="search" placeholder="Digite algum filme para pesquisar..." />
-            <img class="search-icon" src="./assets/images/search-icon.svg" alt="Ícone lupa de pesquisa">
+        <img class="search-icon" src="./assets/images/search-icon.svg" alt="Ícone lupa de pesquisa">
         </input>
       </span>
 
       <span class="favorite-filter">
-        <input class="checkbox" type="checkbox" />
-        <p>Mostrar meus filmes favoritos apenas</p>
+        <input class="checkbox" name="checkbox" type="checkbox" />
+        <label for="checkbox">Mostrar meus filmes favoritos
+          apenas
+        </label>
+
       </span>
     </header>
 
     <main class="main-content ">
-        <div class="container-movie">
-            <div class="movie-poster">
-                <img src="#" alt="Poster do filme">
-            </div>
-
-            <div class="movie-infos">
-                <h2 class="movie-name">Title</h2>
-                <p class="movie-stars"></p><img src="./assets/images/star.svg" alt="Ícone de estrela">9.9</p>
-                <p class="movie-favorite"><img src="./assets/images/heart.svg" alt="Ícone de coração">Favoritar</p>
-            </div>
-
-            <div class="movie-description">
-                <p movie-sinopse>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
+      <div class="container-movie">
+        <div class="movie-poster">
+          <img src="#" alt="Poster do filme">
         </div>
+
+        <div class="movie-infos">
+          <h2 class="movie-name">Title</h2>
+          <p class="movie-stars"></p><img src="./assets/images/star.svg" alt="Ícone de estrela">9.9</p>
+          <p class="movie-favorite"><img src="./assets/images/heart.svg" alt="Ícone de coração">Favoritar</p>
+        </div>
+
+        <div class="movie-description">
+          <p movie-sinopse>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.</p>
+        </div>
+      </div>
     </main>
 
     <script src="./assets/js/script.js"></script>
   </body>
+
 </html>
