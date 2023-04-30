@@ -68,4 +68,65 @@ h1 {
   cursor: pointer;
 }
 
+/* Favorite filter */
+.favorite-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lb-check {
+
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#checkbox {
+  position: relative;
+  background-color: var(--light-purple);
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--light-purple);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#checkbox:before {
+  content: '';
+  margin-right: 1rem;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 1rem;
+  height: 1rem;
+  background: #17162e;
+  border: 1px solid var(--light-purple);
+  border-radius: 4px;
+}
+
+#checkbox:checked:before {
+  color: var(--white);
+  background-color: var(--light-purple);
+  border: 1px solid var(--light-purple);
+}
+
+#checkbox:checked:after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  background: var(--white);
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    2px 0 0 var(--white),
+    4px 0 0 var(--white),
+    4px -2px 0 var(--white),
+    4px -4px 0 var(--white),
+    4px -6px 0 var(--white),
+    4px -8px 0 var(--white);
+  transform: rotate(45deg);
+}
+
 /* --------------------- MAIN --------------------- */
