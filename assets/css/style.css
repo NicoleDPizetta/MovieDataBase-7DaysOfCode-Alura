@@ -4,3 +4,37 @@
   box-sizing: border-box;
   font-family: "Kumbh Sans", sans-serif;
 }
+
+:root {
+  --white: #ffffff;
+  --gray: #acacac;
+  --placeholder-color: #8a8a8a;
+  --light-purple: #706ea8;
+  --purple: #1d1c3b;
+  --dark-purple: #17162e;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-purple);
+}
+
+/* --------------------- HEADER --------------------- */
+header {
+  text-align: center;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3.75rem auto;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2.25rem;
+}
+
+/* --------------------- MAIN --------------------- */

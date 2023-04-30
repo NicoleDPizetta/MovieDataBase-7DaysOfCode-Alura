@@ -19,12 +19,19 @@
   <body>
     <header>
       <h1>Filmes Populares</h1>
-      <input type="search" placeholder="Digite algum filme para pesquisar..." />
+      <span class="searcher">
+        <input class="search-input" type="search" placeholder="Digite algum filme para pesquisar..." />
+            <img class="search-icon" src="./assets/images/search-icon.svg" alt="Ícone lupa de pesquisa">
+        </input>
+      </span>
 
-      <input type="checkbox" />Mostrar meus filmes favoritos apenas
+      <span class="favorite-filter">
+        <input class="checkbox" type="checkbox" />
+        <p>Mostrar meus filmes favoritos apenas</p>
+      </span>
     </header>
 
-    <main class="main-content">
+    <main class="main-content ">
         <div class="container-movie">
             <div class="movie-poster">
                 <img src="#" alt="Poster do filme">
