@@ -18,6 +18,9 @@ body {
   width: 100%;
   height: 100vh;
   background-color: var(--dark-purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* --------------------- HEADER --------------------- */
@@ -130,3 +133,78 @@ h1 {
 }
 
 /* --------------------- MAIN --------------------- */
+.main-content {
+  width: 85%;
+}
+
+.container-movie {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.125rem;
+  padding: 1.5rem 2.5rem;
+  background-color: var(--purple);
+  box-shadow: 32.8387px 24.5482px 79px rgba(0, 0, 0, 0.15), 23.8851px 17.855px 53.2479px rgba(0, 0, 0, 0.121406), 16.6246px 12.4276px 34.4391px rgba(0, 0, 0, 0.10125), 10.9035px 8.15079px 21.3701px rgba(0, 0, 0, 0.0867188), 6.56775px 4.90965px 12.8375px rgba(0, 0, 0, 0.075), 3.46346px 2.58907px 7.6377px rgba(0, 0, 0, 0.0632813), 1.4367px 1.07399px 4.56719px rgba(0, 0, 0, 0.04875), 0.333519px 0.249318px 2.42246px rgba(0, 0, 0, 0.0285938);
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.movie-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  gap: 1.5rem;
+  color: var(--white);
+  width: 32rem;
+  border: 1px solid white;
+}
+
+.movie-name {
+  font-weight: 500;
+}
+
+.icons-movie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  font-weight: 400;
+}
+
+.icons-movie img {
+  width: auto;
+  height: 1.25rem;
+}
+
+.movie-stars,
+.movie-favorite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.movie-description {
+  font-weight: 500;
+  width: 60rem;
+  position: right;
+  color: var(--gray);
+}
+
+.movie-poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-poster img {
+  width: 10rem;
+  height: 10rem;
+  filter: drop-shadow(20px 20px 30px rgba(0, 0, 0, 0.3));
+  border-radius: 800px;
+}
+
+/* --------------------- MEDIA QUERY --------------------- */
