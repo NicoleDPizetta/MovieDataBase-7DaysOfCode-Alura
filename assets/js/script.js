@@ -38,10 +38,15 @@ function showMovies(data) {
       <div class="movie-infos">
         <h2 class="movie-name">${title}</h2>
         <div class="icons-movie">
-          <p class="${getColor(
-            vote_average
-          )} movie-stars" id="color-votes"><img src="./assets/images/star.svg" alt="Ícone de estrela" title="Nota média">${vote_average}</p>
-          <p class="movie-favorite"><img src="./assets/images/heart.svg" alt="Ícone de coração" title="Adicionar aos favoritos">Favoritar</p>
+          <span class="${getColor(vote_average)}" id="movie-stars">
+            <img src="./assets/images/star.svg" alt="Ícone de estrela" title="Nota média">
+            <p>${vote_average}</p>
+          </span>
+          
+          <span class="movie-favorite">
+            <img src="./assets/images/heart.svg" alt="Ícone de coração" title="Adicionar aos favoritos">
+            <p>Favoritar</p>
+          </span>
         </div>
       </div>
 
@@ -57,23 +62,10 @@ function showMovies(data) {
 /* Trocar a cor da nota do filme */
 function getColor(vote) {
   if (vote >= 8) {
-    return `green`;
+    return `lightgreen`;
   } else if (vote >= 5) {
     return `orange`;
   } else {
     return `red`;
   }
 }
-
-/* Buscar filmes através do campo de pesquisa */
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const searchTerms = search.value;
-
-  if (searchTerms) {
-    getMovies(search_URL + `&query=` + searchTerms);
-  } else {
-    getMovies(API_URL);
-  }
-});
