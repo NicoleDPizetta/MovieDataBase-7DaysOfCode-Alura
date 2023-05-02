@@ -198,7 +198,7 @@ input[type="search"]::-webkit-search-cancel-button {
   gap: 0.5rem;
 }
 
-#movie-stars.green {
+#movie-stars.lightgreen {
   color: lightgreen;
 }
 
