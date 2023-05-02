@@ -6,6 +6,9 @@ const search_URL = BASE_URL + `search/movie?` + API_KEY;
 
 const main = document.getElementById("movies");
 
+const form = document.getElementById("searcher");
+const search = document.getElementById("form-search");
+
 /* Requisição na API */
 function getMovies(url) {
   fetch(url)
@@ -61,3 +64,16 @@ function getColor(vote) {
     return `red`;
   }
 }
+
+/* Buscar filmes através do campo de pesquisa */
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const searchTerms = search.value;
+
+  if (searchTerms) {
+    getMovies(search_URL + `&query=` + searchTerms);
+  } else {
+    getMovies(API_URL);
+  }
+});
