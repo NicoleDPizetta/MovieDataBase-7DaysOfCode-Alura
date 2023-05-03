@@ -2,7 +2,7 @@ const API_KEY = "api_key=de0ab66fbafc67cdcf7fa185440bb9b9&language=pt-BR";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
-const search_URL = BASE_URL + `search/movie?` + API_KEY;
+const search_URL = BASE_URL + `/search/movie?` + API_KEY;
 
 const main = document.getElementById("movies");
 
@@ -27,6 +27,7 @@ function showMovies(data) {
   data.forEach((movie) => {
     const { title, poster_path, vote_average, overview } = movie;
     const movieElement = document.createElement("div");
+
     movieElement.classList.add("container-movie");
     movieElement.innerHTML = `
         <div class="movie-poster">
@@ -40,7 +41,7 @@ function showMovies(data) {
         <div class="icons-movie">
           <span class="${getColor(vote_average)}" id="movie-stars">
             <img src="./assets/images/star.svg" alt="Ícone de estrela" title="Nota média">
-            <p>${vote_average}</p>
+            <p>${vote_average.toFixed(1)}</p>
           </span>
           
           <span class="movie-favorite">
@@ -69,3 +70,16 @@ function getColor(vote) {
     return `red`;
   }
 }
+
+/* Buscar filmes através do campo de pesquisa */
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const searchTerms = search.value;
+
+  if (searchTerms) {
+    getMovies(search_URL + `&query=` + searchTerms);
+  } else {
+    getMovies(API_URL);
+  }
+});
