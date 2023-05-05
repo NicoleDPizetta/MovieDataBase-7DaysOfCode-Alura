@@ -1,11 +1,11 @@
 const API_KEY = "api_key=de0ab66fbafc67cdcf7fa185440bb9b9&language=pt-BR";
 const BASE_URL = "https://api.themoviedb.org/3";
-const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
+const POPULAR_URL =
+  BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 const search_URL = BASE_URL + `/search/movie?` + API_KEY;
 
 const main = document.getElementById("movies");
-
 const form = document.getElementById("searcher");
 const search = document.getElementById("form-search");
 
@@ -14,14 +14,14 @@ function getMovies(url) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      showMovies(data.results);
+      showPopularMovies(data.results);
     });
 }
 
-getMovies(API_URL);
+getMovies(POPULAR_URL);
 
 /* Mostra os filmes na tela */
-function showMovies(data) {
+function showPopularMovies(data) {
   main.innerHTML = "";
 
   data.forEach((movie) => {
@@ -80,6 +80,6 @@ form.addEventListener("submit", (e) => {
   if (searchTerms) {
     getMovies(search_URL + `&query=` + searchTerms);
   } else {
-    getMovies(API_URL);
+    getMovies(POPULAR_URL);
   }
 });
