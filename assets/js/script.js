@@ -25,7 +25,7 @@ function showPopularMovies(data) {
   main.innerHTML = "";
 
   data.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+    const { title, poster_path, vote_average, vote_count, overview } = movie;
     const movieElement = document.createElement("div");
 
     movieElement.classList.add("container-movie");
@@ -40,12 +40,12 @@ function showPopularMovies(data) {
         <h2 class="movie-name">${title}</h2>
         <div class="icons-movie">
           <span class="${getColor(vote_average)}" id="movie-stars">
-            <img src="./assets/images/star.svg" alt="Ícone de estrela" title="Nota média">
+            <img src="./assets/images/star.svg" alt="Ícone de estrela" title="Nota média baseada em ${vote_count} votos.">
             <p>${vote_average.toFixed(1)}</p>
           </span>
           
           <span class="movie-favorite">
-            <img src="./assets/images/heart.svg" alt="Ícone de coração" title="Adicionar aos favoritos">
+            <img src="./assets/images/heart.svg" alt="Ícone de coração" id="heart-img" title="Adicionar aos favoritos">
             <p>Favoritar</p>
           </span>
         </div>
