@@ -45,8 +45,8 @@ function showPopularMovies(data) {
           </span>
           
           <span class="movie-favorite">
-            <img src="./assets/images/heart.svg" alt="Ícone de coração" id="heart-img" title="Adicionar aos favoritos">
-            <p>Favoritar</p>
+            <input type="checkbox" name="favoriteBtn" id="favoriteBtn" title="Adicionar aos favoritos"/>
+            <label>Favoritar</label>
           </span>
         </div>
       </div>
@@ -57,9 +57,12 @@ function showPopularMovies(data) {
         `;
 
     main.appendChild(movieElement);
+
+    favoriteBtn.addEventListener("click", changeHeart);
   });
 }
 
+/* TUDO FUNCIONANDO AQUI */
 /* Trocar a cor da nota do filme */
 function getColor(vote) {
   if (vote >= 8) {

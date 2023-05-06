@@ -210,6 +210,27 @@ input[type="search"]::-webkit-search-cancel-button {
   color: red;
 }
 
+#favoriteBtn {
+  position: relative;
+  vertical-align: text-top;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+}
+
+#favoriteBtn:before {
+  content: url(../images/heart.svg);
+  position: absolute;
+}
+
+#favoriteBtn:checked:after {
+  content: url(../images/favorited.svg);
+  position: absolute;
+  left: 1px;
+  z-index: 1;
+}
+
 .movie-description {
   font-weight: 500;
   width: 100%;
