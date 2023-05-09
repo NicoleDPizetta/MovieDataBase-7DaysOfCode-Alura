@@ -10,21 +10,23 @@ const form = document.getElementById("searcher");
 const search = document.getElementById("form-search");
 
 /* Requisição na API */
-function getMovies(url) {
-  fetch(url)
+async function getMovies(url) {
+  const response = await fetch(url)
     .then((res) => res.json())
     .then((data) => {
       showPopularMovies(data.results);
     });
+
+  return response;
 }
 
 getMovies(POPULAR_URL);
 
 /* Mostra os filmes na tela */
-function showPopularMovies(data) {
+async function showPopularMovies(response) {
   main.innerHTML = "";
 
-  data.forEach((movie) => {
+  await response.forEach((movie) => {
     const { title, poster_path, vote_average, vote_count, overview } = movie;
     const movieElement = document.createElement("div");
 
@@ -47,6 +49,7 @@ function showPopularMovies(data) {
           <span class="movie-favorite">
             <input type="checkbox" name="favoriteBtn" class="favoriteBtn" id="favoriteBtn" title="Adicionar aos favoritos"/>
             <label>Favoritar</label>
+          </span>
           </span>
         </div>
       </div>
