@@ -179,6 +179,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .icons-movie {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 3rem;
@@ -190,24 +191,12 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 1.25rem;
 }
 
-#movie-stars,
+.rating,
 .movie-favorite {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-}
-
-#movie-stars.lightgreen {
-  color: lightgreen;
-}
-
-#movie-stars.orange {
-  color: orange;
-}
-
-#movie-stars.red {
-  color: red;
 }
 
 #favoriteBtn {
@@ -216,8 +205,8 @@ input[type="search"]::-webkit-search-cancel-button {
   cursor: pointer;
   width: 20px;
   height: 20px;
-  appearance: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 #favoriteBtn:before {
