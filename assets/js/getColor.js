@@ -1,8 +1,3 @@
-/* export function getColor(); */
-export const GetColor = {
-  getColor,
-};
-
 function getColor(vote) {
   if (vote >= 8) {
     return `lightgreen`;
@@ -12,3 +7,7 @@ function getColor(vote) {
     return `red`;
   }
 }
+
+export const GetColor = {
+  getColor,
+};

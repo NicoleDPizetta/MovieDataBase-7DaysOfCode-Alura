@@ -1,29 +1,38 @@
 import { APIData } from "./api.js";
 import { LocalStorage } from "./localStorage.js";
 import { GetColor } from "./getColor.js";
-import { SearchMovie } from "./searchMovies.js";
+import { Search } from "./searchMovies.js";
 
 export const CleanAllMovies = {
   cleanAllMovies,
 };
+export const FavBtnState = {
+  favoriteBtnPressed,
+};
 
 const main = document.getElementById("movies");
+const checkboxInput = document.querySelector('input[type="checkbox"]');
 const form = document.getElementById("searcher");
 const searchButton = document.getElementById("search-icon");
-/* const checkboxInput = document.getElementById("checkbox"); */
-const input = document.querySelector("input");
-const checkboxInput = document.querySelector('input[type="checkbox"]');
+const searchInput = document.getElementById("form-search");
 
 checkboxInput.addEventListener("change", checkCheckboxStatus);
-searchButton.addEventListener("click", SearchMovie.searchMovie);
+searchButton.addEventListener("click", searchMovie);
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  SearchMovie.searchMovie;
+  searchMovie();
 });
 
-window.onload = function () {
-  getPopularMovies();
-};
+async function searchMovie() {
+  const searchTerms = searchInput.value;
+  if (searchTerms) {
+    CleanAllMovies.cleanAllMovies();
+    const movies = await Search.searchMovieByName(searchTerms);
+    movies.forEach((movie) => renderMovie(movie));
+  } else {
+    getPopularMovies();
+  }
+}
 
 function checkCheckboxStatus() {
   const isChecked = checkboxInput.checked;
@@ -40,7 +49,6 @@ function cleanAllMovies() {
   main.innerHTML = "";
 }
 
-/* Testes */
 async function getMovies() {
   const url = APIData.POPULAR_URL;
   const fetchResponse = await fetch(url);
@@ -54,17 +62,21 @@ async function getPopularMovies() {
 }
 
 function favoriteBtnPressed(event, movie) {
+  const favoriteBtn = document.getElementById("favoriteBtn");
+  favoriteBtn.classList.toggle("isFavorited");
+
   const favoriteState = {
     favorited: "../assets/images/favorited.svg",
     notFavorited: "../assets/images/heart.svg",
   };
-  if (event.target.src.includes(favoriteState.notFavorited)) {
-    event.target.src = favoriteState.favorited;
+
+  if (favoriteBtn.classList.contains("isFavorited")) {
     console.log("Sou um favorito agora");
-    LocalStorage.saveToLocalStorage(movie.id);
+    event.target.src = favoriteState.favorited;
+    LocalStorage.saveToLocalStorage(movie);
   } else {
-    event.target.src = favoriteState.notFavorited;
     console.log("Não sou um favorito");
+    event.target.src = favoriteState.notFavorited;
     LocalStorage.removeFromLocalStorage(movie.id);
   }
 }
@@ -115,6 +127,7 @@ function renderMovie(movie) {
   /* Container da nota do filme */
   const ratingContainer = document.createElement("span");
   ratingContainer.classList.add("rating");
+  ratingContainer.title = `Nota média baseada em ${vote_count} votos.`;
 
   /* Ícone de estrela */
   const starImage = document.createElement("img");
@@ -126,7 +139,6 @@ function renderMovie(movie) {
   movieRate.classList.add("movie-rate");
   movieRate.textContent = `${vote_average.toFixed(1)}`;
   movieRate.style.color = `${GetColor.getColor(vote_average)}`;
-  movieRate.title = `Nota média baseada em ${vote_count} votos.`;
 
   ratingContainer.appendChild(starImage);
   ratingContainer.appendChild(movieRate);
@@ -144,6 +156,7 @@ function renderMovie(movie) {
     : "../assets/images/heart.svg";
   favoriteImage.alt = "Ícone de coração";
   favoriteImage.classList.add("favoriteBtn");
+  favoriteImage.setAttribute("id", "favoriteBtn");
   favoriteImage.addEventListener("click", (event) =>
     favoriteBtnPressed(event, movie)
   );

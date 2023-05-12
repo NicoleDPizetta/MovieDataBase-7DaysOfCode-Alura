@@ -22,16 +22,30 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Consumo de API
 - Manipulação de DOM
 - JavaScript Vanilla
+- Persistência de Dados com LocalStorage
 - Figma
 - Versionamento com Git e Github
+- Responsividade
 
 ## 🎬 Preview site
 
-- [EM BREVE]()
+- [Clique aqui](https://nicoledpizetta.github.io/MovieDataBase-7DaysOfCode-Alura/)
 
 ## 🎬 Screenshots
 
 #### Desktop
+
+![](./assets/screenshots/popular-movies.png)
+![](./assets/screenshots/search-movies.png)
+![](./assets/screenshots/show-only-favorites.png)
+
+#### Mobile
+
+![](./assets/screenshots/popular-movies-mobile.png) ![](./assets/screenshots/search-movies-mobile.png) ![](./assets/screenshots/show-only-favorites-mobile.png)
+
+#### Tablet
+
+![](./assets/screenshots/popular-movies-tablet.png) ![](./assets/screenshots/search-movies-tablet.png) ![](./assets/screenshots/show-only-favorites-tablet.png)
 
 EM BREVE
 
