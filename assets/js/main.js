@@ -23,6 +23,10 @@ form.addEventListener("submit", function (e) {
   searchMovie();
 });
 
+window.onload = function () {
+  getPopularMovies();
+};
+
 async function searchMovie() {
   const searchTerms = searchInput.value;
   if (searchTerms) {
