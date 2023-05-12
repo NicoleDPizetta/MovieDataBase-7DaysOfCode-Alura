@@ -66,8 +66,8 @@ function favoriteBtnPressed(event, movie) {
   favoriteBtn.classList.toggle("isFavorited");
 
   const favoriteState = {
-    favorited: "../assets/images/favorited.svg",
-    notFavorited: "../assets/images/heart.svg",
+    favorited: "./assets/images/favorited.svg",
+    notFavorited: "./assets/images/heart.svg",
   };
 
   if (favoriteBtn.classList.contains("isFavorited")) {
@@ -131,7 +131,7 @@ function renderMovie(movie) {
 
   /* Ícone de estrela */
   const starImage = document.createElement("img");
-  starImage.src = "../assets/images/star.svg";
+  starImage.src = "./assets/images/star.svg";
   starImage.alt = "Ícone de estrela";
 
   /* Nota média do filme texto */
@@ -152,8 +152,8 @@ function renderMovie(movie) {
   /* Ícone de coração */
   const favoriteImage = document.createElement("img");
   favoriteImage.src = isFavorited
-    ? "../assets/images/favorited.svg"
-    : "../assets/images/heart.svg";
+    ? "./assets/images/favorited.svg"
+    : "./assets/images/heart.svg";
   favoriteImage.alt = "Ícone de coração";
   favoriteImage.classList.add("favoriteBtn");
   favoriteImage.setAttribute("id", "favoriteBtn");
